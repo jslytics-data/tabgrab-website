@@ -1,4 +1,4 @@
-function init(faviconUrl, pageTitle, controlPopulation, timeout) {
+function TabGrab(faviconUrl, pageTitle, controlPopulation) {
   var originalFavicon = document.querySelector("link[rel='icon']").href;
   var originalTitle = document.title;
   var hasReturned = false;
@@ -18,8 +18,10 @@ function init(faviconUrl, pageTitle, controlPopulation, timeout) {
       if (variant === "variant") {
         var interval = setInterval(function() {
           var link = document.querySelector("link[rel='icon']");
-          link.href = link.href === originalFavicon ? faviconUrl : originalFavicon;
-          document.title = document.title === originalTitle ? pageTitle : originalTitle;
+          link.href =
+            link.href === originalFavicon ? faviconUrl : originalFavicon;
+          document.title =
+            document.title === originalTitle ? pageTitle : originalTitle;
         }, timeout);
         setTimeout(function() {
           document.querySelector("link[rel='icon']").href = originalFavicon;
@@ -40,8 +42,3 @@ function init(faviconUrl, pageTitle, controlPopulation, timeout) {
     }
   });
 }
-export {
-  TabGrab: {
-    init: init
-  }
-};
