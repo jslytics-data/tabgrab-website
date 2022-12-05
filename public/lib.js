@@ -40,8 +40,7 @@ function init(faviconUrl, pageTitle, controlPopulation, timeout) {
     }
   });
 }
-
-module.exports = {
+export {
   TabGrab: {
     init: init
   }
